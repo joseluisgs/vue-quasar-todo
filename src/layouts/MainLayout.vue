@@ -49,56 +49,38 @@
       v-model="leftDrawerOpen"
       show-if-above
       bordered
-      :width="200"
-      :breakpoint="400"
+      :width="250"
+      :breakpoint="600"
     >
       <q-scroll-area
         style="height: calc(100% - 150px); margin-top: 150px; border-right: 1px solid #ddd"
       >
+        <!-- Lista de elementos -->
         <q-list padding>
           <q-item
+            to="/"
+            exact
             clickable
             v-ripple
           >
             <q-item-section avatar>
-              <q-icon name="inbox" />
+              <q-icon name="list" />
             </q-item-section>
 
-            <q-item-section> Inbox </q-item-section>
+            <q-item-section> Todo </q-item-section>
           </q-item>
 
           <q-item
-            active
+            to="/help"
+            exact
             clickable
             v-ripple
           >
             <q-item-section avatar>
-              <q-icon name="star" />
+              <q-icon name="help" />
             </q-item-section>
 
-            <q-item-section> Star </q-item-section>
-          </q-item>
-
-          <q-item
-            clickable
-            v-ripple
-          >
-            <q-item-section avatar>
-              <q-icon name="send" />
-            </q-item-section>
-
-            <q-item-section> Send </q-item-section>
-          </q-item>
-
-          <q-item
-            clickable
-            v-ripple
-          >
-            <q-item-section avatar>
-              <q-icon name="drafts" />
-            </q-item-section>
-
-            <q-item-section> Drafts </q-item-section>
+            <q-item-section> Help </q-item-section>
           </q-item>
         </q-list>
       </q-scroll-area>
@@ -113,16 +95,19 @@
             size="56px"
             class="q-mb-sm"
           >
-            <img :src=userStore.avatar />
+            <img :src="userStore.avatar" />
           </q-avatar>
-          <div class="text-weight-bold">{{userStore.user}}</div>
-          <div>{{userStore.twitter}}</div>
+          <div class="text-weight-bold">{{ userStore.user }}</div>
+          <div>{{ userStore.twitter }}</div>
         </div>
       </q-img>
     </q-drawer>
 
     <q-page-container>
-      <router-view />
+      <!-- Para cachear -->
+      <keep-alive>
+        <router-view />
+      </keep-alive>
     </q-page-container>
   </q-layout>
 </template>
