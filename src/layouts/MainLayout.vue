@@ -104,8 +104,8 @@
       </q-scroll-area>
 
       <q-img
-        class="absolute-top"
-        src="https://cdn.quasar.dev/img/material.png"
+        class="absolute-top text-center"
+        src="~/assets/developer.webp"
         style="height: 150px"
       >
         <div class="absolute-bottom bg-transparent">
@@ -113,10 +113,10 @@
             size="56px"
             class="q-mb-sm"
           >
-            <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
+            <img :src=userStore.avatar />
           </q-avatar>
-          <div class="text-weight-bold">Razvan Stoenescu</div>
-          <div>@rstoenescu</div>
+          <div class="text-weight-bold">{{userStore.user}}</div>
+          <div>{{userStore.twitter}}</div>
         </div>
       </q-img>
     </q-drawer>
@@ -131,51 +131,7 @@
   import { defineComponent, ref } from 'vue'
   import { Icon } from '@iconify/vue'
   import { date } from 'quasar'
-
-  const linksList = [
-    {
-      title: 'Docs',
-      caption: 'quasar.dev',
-      icon: 'school',
-      link: 'https://quasar.dev',
-    },
-    {
-      title: 'Github',
-      caption: 'github.com/quasarframework',
-      icon: 'code',
-      link: 'https://github.com/quasarframework',
-    },
-    {
-      title: 'Discord Chat Channel',
-      caption: 'chat.quasar.dev',
-      icon: 'chat',
-      link: 'https://chat.quasar.dev',
-    },
-    {
-      title: 'Forum',
-      caption: 'forum.quasar.dev',
-      icon: 'record_voice_over',
-      link: 'https://forum.quasar.dev',
-    },
-    {
-      title: 'Twitter',
-      caption: '@quasarframework',
-      icon: 'rss_feed',
-      link: 'https://twitter.quasar.dev',
-    },
-    {
-      title: 'Facebook',
-      caption: '@QuasarFramework',
-      icon: 'public',
-      link: 'https://facebook.quasar.dev',
-    },
-    {
-      title: 'Quasar Awesome',
-      caption: 'Community Quasar projects',
-      icon: 'favorite',
-      link: 'https://awesome.quasar.dev',
-    },
-  ]
+  import UserStore from '../stores/users'
 
   export default defineComponent({
     name: 'MainLayout',
@@ -186,14 +142,15 @@
 
     setup() {
       const leftDrawerOpen = ref(false)
+      const userStore = UserStore()
 
       return {
-        essentialLinks: linksList,
         leftDrawerOpen,
         toggleLeftDrawer() {
           leftDrawerOpen.value = !leftDrawerOpen.value
         },
         myDate: date.formatDate(Date.now(), 'dddd, DD MMMM YYYY'),
+        userStore,
       }
     },
   })
