@@ -63,6 +63,17 @@
         </q-item-section>
       </q-item>
     </q-list>
+    <div
+      v-if="!tasks.length"
+      class="no-tasks absolute-center"
+    >
+      <q-icon
+        name="check"
+        size="100px"
+        color="primary"
+      />
+      <div class="text-h-5 text-primary text-bold text-center">No tasks</div>
+    </div>
   </q-page>
 </template>
 
@@ -117,7 +128,7 @@
       }
 
       return {
-        tasks: taskStore.getTasks,
+        tasks: computed(() => taskStore.getTasks),
         clickTask,
         deleteTask,
         newTaskTitle,
@@ -134,5 +145,8 @@
       text-decoration: line-through;
       color: #bbb;
     }
+  }
+  .no-tasks {
+    opacity: 0.6;
   }
 </style>

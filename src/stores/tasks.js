@@ -4,30 +4,30 @@ const TaskStore = defineStore({
   id: 'TaskStore',
   state: () => ({
     tasks: [
-      {
-        id: Date.now(),
-        title: 'Get Oranges',
-        done: false,
-        createdAt: new Date(2022, 6, 31, 12, 42, 23),
-      },
-      {
-        id: Date.now(),
-        title: 'Learn Vue.js',
-        done: true,
-        createdAt: new Date(2022, 6, 29, 10, 22, 0),
-      },
-      {
-        id: Date.now(),
-        title: 'Make apps with Quasar',
-        done: false,
-        createdAt: new Date(2022, 6, 28, 9, 31, 33),
-      },
-      {
-        id: Date.now(),
-        title: 'Write API REST Kotlin-Ktor',
-        done: false,
-        createdAt: new Date(2022, 6, 31, 14, 0, 2),
-      },
+      // {
+      //   id: Date.now(),
+      //   title: 'Get Oranges',
+      //   done: false,
+      //   createdAt: new Date(2022, 6, 31, 12, 42, 23),
+      // },
+      // {
+      //   id: Date.now(),
+      //   title: 'Learn Vue.js',
+      //   done: true,
+      //   createdAt: new Date(2022, 6, 29, 10, 22, 0),
+      // },
+      // {
+      //   id: Date.now(),
+      //   title: 'Make apps with Quasar',
+      //   done: false,
+      //   createdAt: new Date(2022, 6, 28, 9, 31, 33),
+      // },
+      // {
+      //   id: Date.now(),
+      //   title: 'Write API REST Kotlin-Ktor',
+      //   done: false,
+      //   createdAt: new Date(2022, 6, 31, 14, 0, 2),
+      // },
     ],
   }),
   getters: {
