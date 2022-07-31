@@ -166,6 +166,8 @@ module.exports = configure(function (/* ctx */) {
       // extendElectronMainConf (esbuildConf)
       // extendElectronPreloadConf (esbuildConf)
 
+      platform: 'linux', // all or array of platforms ('osx', 'win32', 'linux')
+
       inspectPort: 5858,
 
       bundler: 'packager', // 'packager' or 'builder'

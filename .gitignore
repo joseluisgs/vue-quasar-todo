@@ -17,6 +17,7 @@ node_modules
 /src-capacitor/node_modules
 
 /src-electron
+/src-cordova
 
 # Log files
 npm-debug.log*
