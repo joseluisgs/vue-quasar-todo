@@ -26,7 +26,9 @@ Una app multiplataforma hecha con Vue.js usando Quasar para manejar tareas.
   - [Licencia de uso](#licencia-de-uso)
 
 ## Acerca de
-Sencilla apliación para mo9strar la potencia de usar Vue.js con Quasar para hacer aplicaciones multiplataforma: web, escritorio, ssr, móviles, etc.
+Sencilla apliación para mostrar la potencia de usar Vue.js con Quasar para hacer aplicaciones multiplataforma: web, escritorio, ssr, móviles, etc.
+
+Se ha realizado un gestor de tareas multiplataforma.
 
 ## Install the dependencies
 ```bash
