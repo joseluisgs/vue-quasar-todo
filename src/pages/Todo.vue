@@ -43,6 +43,7 @@
 
 <script>
   import { defineComponent } from 'vue'
+  import { useQuasar } from 'quasar'
   import TaskStore from '../stores/tasks'
 
   export default defineComponent({
@@ -50,15 +51,25 @@
 
     setup() {
       const taskStore = TaskStore()
+      const quasar = useQuasar()
 
       const clickTask = (task) => {
         taskStore.toggleTask(task)
       }
 
       const deleteTask = (task) => {
-        taskStore.deleteTask(task)
+        quasar
+          .dialog({
+            title: 'Delete Task',
+            message: task.title,
+            cancel: true,
+            persistent: true,
+          })
+          .onOk(() => {
+            taskStore.deleteTask(task)
+            quasar.notify({ message: 'Task deleted', color: 'negative' })
+          })
       }
-
       return {
         tasks: taskStore.getTasks,
         clickTask,
