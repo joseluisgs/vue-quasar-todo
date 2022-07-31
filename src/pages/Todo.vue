@@ -1,5 +1,27 @@
 <template>
   <q-page class="bg-grey-3 column">
+    <div class="row q-pa-sm bg-info">
+      <q-input
+        filled
+        bottom-slots
+        v-model="newTaskTitle"
+        placeholder="Add task"
+        dense
+        bg-color="white"
+        class="col"
+        @keyup.enter="createTask"
+      >
+        <template v-slot:append>
+          <q-btn
+            round
+            dense
+            flat
+            icon="add"
+            @click="createTask"
+          />
+        </template>
+      </q-input>
+    </div>
     <q-list
       class="bg-white"
       separator
@@ -23,6 +45,9 @@
         <q-item-section>
           <q-item-label>{{ task.title }}</q-item-label>
         </q-item-section>
+        <q-item-section>
+          <q-item-label>{{ timeAgo(task.createdAt) }}</q-item-label>
+        </q-item-section>
         <q-item-section
           v-if="task.done"
           side
@@ -42,9 +67,15 @@
 </template>
 
 <script>
-  import { defineComponent } from 'vue'
-  import { useQuasar } from 'quasar'
+  import { defineComponent, ref, computed } from 'vue'
+  import { useQuasar, date } from 'quasar'
   import TaskStore from '../stores/tasks'
+  // Librería de tiempo y su plugin de tiempo relativo
+  import dayjs from 'dayjs'
+  import relativeTime from 'dayjs/plugin/relativeTime'
+  // import 'dayjs/locale/es' /7 zi lo queremos en español
+  // dayjs.locale('es') // Español
+  dayjs.extend(relativeTime)
 
   export default defineComponent({
     name: 'TodoPage',
@@ -52,6 +83,7 @@
     setup() {
       const taskStore = TaskStore()
       const quasar = useQuasar()
+      const newTaskTitle = ref('')
 
       const clickTask = (task) => {
         taskStore.toggleTask(task)
@@ -70,10 +102,27 @@
             quasar.notify({ message: 'Task deleted', color: 'negative' })
           })
       }
+
+      const createTask = () => {
+        if (newTaskTitle.value.trim().length > 0) {
+          taskStore.createTask(newTaskTitle.value.trim())
+          newTaskTitle.value = ''
+          quasar.notify({ message: 'Task added', color: 'positive' })
+        }
+      }
+
+      const timeAgo = (timestamp) => {
+        const date = new Date(timestamp)
+        return dayjs().from(dayjs(date), true)
+      }
+
       return {
         tasks: taskStore.getTasks,
         clickTask,
         deleteTask,
+        newTaskTitle,
+        createTask,
+        timeAgo,
       }
     },
   })
