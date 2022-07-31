@@ -30,6 +30,11 @@ Sencilla apliación para mostrar la potencia de usar Vue.js con Quasar para hace
 
 Se ha realizado un gestor de tareas multiplataforma.
 
+![img01](./images/01.png)
+![img02](./images/02.png)
+![img03](./images/03.png)
+![img04](./images/04.png)
+
 ## Install the dependencies
 ```bash
 yarn
