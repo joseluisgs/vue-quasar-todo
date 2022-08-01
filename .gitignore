@@ -18,6 +18,7 @@ node_modules
 
 /src-electron
 /src-cordova
+/src-pwa
 
 # Log files
 npm-debug.log*
