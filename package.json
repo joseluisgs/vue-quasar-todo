@@ -9,7 +9,7 @@
     "dev": "quasar dev",
     "dev:electron": "quasar dev -m electron",
     "dev:android": "quasar dev -m cordova -T android",
-    "build": "quasar build",
+    "build": "quasar build -m spa",
     "build:pwa": "quasar build -m pwa",
     "build:electron": "quasar build -m electron",
     "lint": "eslint --ext .js,.vue ./",
