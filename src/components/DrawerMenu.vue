@@ -52,8 +52,22 @@
         >
           <img :src="userStore.avatar" />
         </q-avatar>
-        <div class="text-weight-bold">{{ userStore.user }}</div>
-        <div>{{ userStore.twitter }}</div>
+        <div class="text-weight-bold">
+          <a
+            href="https://joseluisgs.github.io/"
+            target="_blank"
+            class="text-weight-bold my-link"
+            >{{ userStore.user }}</a
+          >
+        </div>
+        <div>
+          <a
+            href="https://twitter.com/joseluisgonsan"
+            target="_blank"
+            class="text-weight-bold my-link"
+            >{{ userStore.twitter }}</a
+          >
+        </div>
       </div>
     </q-img>
   </q-drawer>
@@ -72,8 +86,14 @@
 
       return {
         leftDrawerOpen: computed(() => utilStore.isLeftDrawerOpen),
-         userStore,
+        userStore,
       }
     },
   }
 </script>
+<style lang="scss">
+  .my-link {
+    color: #fff;
+    text-decoration: none;
+  }
+</style>

@@ -3,9 +3,18 @@
 </template>
 
 <script>
-  import { defineComponent } from 'vue'
+  import { defineComponent, onMounted } from 'vue'
+  import TaskStore from './stores/tasks'
 
   export default defineComponent({
     name: 'App',
+
+    setup() {
+      const taskStore = TaskStore()
+
+      onMounted(() => {
+        taskStore.fetchTasks()
+      })
+    },
   })
 </script>

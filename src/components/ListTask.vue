@@ -4,41 +4,44 @@
     separator
     bordered
   >
-    <q-item
-      v-for="task in tasks"
-      :key="task.id"
-      clickable
-      @click="clickTask(task)"
-      v-ripple
-      :class="{ 'done bg-blue-1': task.done }"
-    >
-      <q-item-section avatar>
-        <q-checkbox
-          v-model="task.done"
-          color="primary"
-          class="no-pointer-events"
-        />
-      </q-item-section>
-      <q-item-section>
-        <q-item-label>{{ task.title }}</q-item-label>
-      </q-item-section>
-      <q-item-section>
-        <q-item-label>{{ timeAgo(task.createdAt) }}</q-item-label>
-      </q-item-section>
-      <q-item-section
-        v-if="task.done"
-        side
+    <!-- Animacion -->
+    <transition-group name="list-complete">
+      <q-item
+        v-for="task in tasks"
+        :key="task.id"
+        clickable
+        @click="clickTask(task)"
+        v-ripple
+        :class="{ 'done bg-blue-1': task.done }"
       >
-        <q-btn
-          flat
-          round
-          color="primary"
-          icon="delete"
-          dense
-          @click.stop="deleteTask(task)"
-        />
-      </q-item-section>
-    </q-item>
+        <q-item-section avatar>
+          <q-checkbox
+            v-model="task.done"
+            color="primary"
+            class="no-pointer-events"
+          />
+        </q-item-section>
+        <q-item-section>
+          <q-item-label>{{ task.title }}</q-item-label>
+        </q-item-section>
+        <q-item-section>
+          <q-item-label>{{ timeAgo(task.createdAt) }}</q-item-label>
+        </q-item-section>
+        <q-item-section
+          v-if="task.done"
+          side
+        >
+          <q-btn
+            flat
+            round
+            color="primary"
+            icon="delete"
+            dense
+            @click.stop="deleteTask(task)"
+          />
+        </q-item-section>
+      </q-item>
+    </transition-group>
   </q-list>
   <div
     v-if="!tasks.length"
@@ -98,7 +101,7 @@
         tasks: computed(() => taskStore.getTasks),
         clickTask,
         deleteTask,
-        timeAgo
+        timeAgo,
       }
     },
   }
@@ -113,5 +116,17 @@
   }
   .no-tasks {
     opacity: 0.6;
+  }
+
+  .list-complete-item {
+    transition: all 0.8s ease;
+  }
+  .list-complete-enter-from,
+  .list-complete-leave-to {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  .list-complete-leave-active {
+    position: relative;
   }
 </style>

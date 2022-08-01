@@ -4,6 +4,7 @@ Una app multiplataforma hecha con Vue.js usando Quasar para manejar tareas.
 
 [![Vue Ready](https://img.shields.io/badge/Code-Vue.js-%2342b983)](https://es.vuejs.org/)
 [![Quasar](https://img.shields.io/badge/Code-Quasar-blue)](https://quasar.dev)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/da507561-bb08-4401-ba7c-427937822984/deploy-status)](https://app.netlify.com/sites/vue-quasar-todo/deploys)
 [![LICENSE](https://img.shields.io/badge/Lisence-CC-%23e64545)](https://joseluisgs.github.io/docs/license/)
 ![GitHub](https://img.shields.io/github/last-commit/joseluisgs/vue-quasar-todo)
 
@@ -14,6 +15,7 @@ Una app multiplataforma hecha con Vue.js usando Quasar para manejar tareas.
 
 - [Vue Quasar Todo](#vue-quasar-todo)
   - [Acerca de](#acerca-de)
+  - [Despliegue:](#despliegue)
   - [Install the dependencies](#install-the-dependencies)
     - [Start the app in development mode (hot-code reloading, error reporting, etc.)](#start-the-app-in-development-mode-hot-code-reloading-error-reporting-etc)
     - [Lint the files](#lint-the-files)
@@ -28,13 +30,15 @@ Una app multiplataforma hecha con Vue.js usando Quasar para manejar tareas.
 ## Acerca de
 Sencilla apliación para mostrar la potencia de usar Vue.js con Quasar para hacer aplicaciones multiplataforma: web, escritorio, ssr, móviles, etc.
 
-Se ha realizado un gestor de tareas multiplataforma.
+Se ha realizado un gestor de tareas multiplataforma: web, spa, desktop, plataformas móviles.
 
 ![img01](./images/01.png)
 ![img02](./images/02.png)
 ![img03](./images/03.png)
 ![img04](./images/04.png)
 
+## Despliegue:
+Proyecto desplegado en: https://vue-quasar-todo.netlify.app
 ## Install the dependencies
 ```bash
 yarn
