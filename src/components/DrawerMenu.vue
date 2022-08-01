@@ -17,6 +17,7 @@
           exact
           clickable
           v-ripple
+          @click="toggleLeftDrawer"
         >
           <q-item-section avatar>
             <q-icon name="list" />
@@ -30,6 +31,7 @@
           exact
           clickable
           v-ripple
+          @click="toggleLeftDrawer"
         >
           <q-item-section avatar>
             <q-icon name="help" />
@@ -86,6 +88,7 @@
 
       return {
         leftDrawerOpen: computed(() => utilStore.isLeftDrawerOpen),
+        toggleLeftDrawer: () => utilStore.toggleLeftDrawer(),
         userStore,
       }
     },
