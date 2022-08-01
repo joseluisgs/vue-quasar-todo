@@ -85,20 +85,20 @@
           })
           .onOk(() => {
             taskStore.deleteTask(task)
-            quasar.notify({ message: 'Task deleted', color: 'negative' })
+            quasar.notify({ type: 'negative', message: 'Task deleted' })
           })
       }
 
-      const timeAgo = (timestamp) => {
+      const timeAgo = computed(() => (timestamp) => {
         const date = new Date(timestamp)
         return dayjs().from(dayjs(date), true)
-      }
+      })
 
       return {
         tasks: computed(() => taskStore.getTasks),
         clickTask,
         deleteTask,
-        timeAgo,
+        timeAgo
       }
     },
   }

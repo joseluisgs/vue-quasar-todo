@@ -37,7 +37,7 @@
         if (newTaskTitle.value.trim().length > 0) {
           taskStore.createTask(newTaskTitle.value.trim())
           newTaskTitle.value = ''
-          quasar.notify({ message: 'Task added', color: 'positive' })
+          quasar.notify({ type: 'positive', message: 'Task added'})
         }
       }
 
